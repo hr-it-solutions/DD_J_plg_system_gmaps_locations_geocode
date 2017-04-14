@@ -30,7 +30,10 @@ class PlgSystemDD_GMaps_Locations extends JPlugin
 	 */
 	public function onExtensionAfterSave($context, $table, $isNew)
 	{
-		// Check if extension save event is on module mod_dd_gmaps_module after save
+		/*
+		 * Mod DD GMaps Module -> GeoCode Address
+		 * Check if extension save event is on module mod_dd_gmaps_module after save
+		 * */
 		if ($context == 'com_modules.module' && $table->module == 'mod_dd_gmaps_module')
 		{
 			$params = json_decode($table->params);
@@ -42,6 +45,15 @@ class PlgSystemDD_GMaps_Locations extends JPlugin
 			$params->longitude = $latlng['longitude'];
 
 			$table->params = json_encode($params);
+
+			// Save parameters
+			$db = JFactory::getDbo();
+			$query = $db->getQuery(true);
+			$query->update($db->qn('#__modules'))
+				->set($db->qn('params') . '=' . $db->q($table->params))
+				->where(array($db->quoteName('id') . '=' . $table->id ));
+			$db->setQuery($query);
+			$db->execute();
 
 			return true;
 		}
@@ -86,7 +98,7 @@ class PlgSystemDD_GMaps_Locations extends JPlugin
 		{
 			JFactory::getApplication()->enqueueMessage($output->error_message, 'Note');
 
-			return false;
+			return true;
 		}
 
 		// Build array latitude and longitude
