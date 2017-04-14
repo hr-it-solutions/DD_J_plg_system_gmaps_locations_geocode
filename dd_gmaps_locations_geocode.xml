@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="3.6" type="plugin" group="system" method="upgrade">
-    <name>plg_system_dd_gmaps_locations</name>
+    <name>plg_system_dd_gmaps_locations_geocode</name>
     <creationDate>14.04.2017</creationDate>
     <author>HR IT-Solutions Florian Häusler</author>
     <authorEmail>info@hr-it-solutions.com</authorEmail>
@@ -8,13 +8,13 @@
     <copyright>Copyright (C) 2011 - 2017 Didldu e.K. | HR IT-Solutions</copyright>
     <license>GNU/GPLv2 only</license>
     <version>1.1.0.0</version>
-    <description>PLG_SYSTEM_DD_GMAPS_LOCATIONS_XML_DESCRIPTION</description>
+    <description>PLG_SYSTEM_DD_GMAPS_LOCATIONS_GEOCODE_XML_DESCRIPTION</description>
     <files>
-        <filename plugin="dd_gmaps_locations">dd_gmaps_locations.php</filename>
+        <filename plugin="dd_gmaps_locations_geocode">dd_gmaps_locations_geocode.php</filename>
         <folder>language</folder>
     </files>
     <languages>
-        <language tag="en-GB">language/en-GB/en-GB.plg_system_dd_gmaps_locations.sys.ini</language>
-        <language tag="de-DE">language/de-DE/de-DE.plg_system_dd_gmaps_locations.sys.ini</language>
+        <language tag="en-GB">language/en-GB/en-GB.plg_system_dd_gmaps_locations_geocode.sys.ini</language>
+        <language tag="de-DE">language/de-DE/de-DE.plg_system_dd_gmaps_locations_geocode.sys.ini</language>
     </languages>
 </extension>
