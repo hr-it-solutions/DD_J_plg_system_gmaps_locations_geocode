@@ -17,4 +17,9 @@
         <language tag="en-GB">language/en-GB/en-GB.plg_system_dd_gmaps_locations_geocode.sys.ini</language>
         <language tag="de-DE">language/de-DE/de-DE.plg_system_dd_gmaps_locations_geocode.sys.ini</language>
     </languages>
+
+    <!-- Update servers -->
+    <updateservers>
+        <server type="collection" priority="1" name="HR IT-Solutions Updates">http://www.hr-it-solutions.com/jextensions/update.xml</server>
+    </updateservers>
 </extension>
