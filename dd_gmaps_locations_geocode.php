@@ -15,7 +15,7 @@ use Joomla\Registry\Registry;
  *
  * @since  Version 1.0.0.0
  */
-class PlgSystemDD_GMaps_Locations extends JPlugin
+class PlgSystemDD_GMaps_Locations_GeoCode extends JPlugin
 {
 	protected $app;
 
