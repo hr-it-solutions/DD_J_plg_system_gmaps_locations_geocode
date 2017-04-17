@@ -100,6 +100,10 @@ class PlgSystemDD_GMaps_Locations_GeoCode extends JPlugin
 
 			return true;
 		}
+		elseif($output->status == 'ZERO_RESULTS')
+		{
+			JFactory::getApplication()->enqueueMessage(JText::_('PLG_SYSTEM_DD_GMAPS_LOCATIONS_GEOCODE_API_ALERT_GEOLOCATION_FAILED_ZERO_RESULTS'), 'warning');
+		}
 
 		// Build array latitude and longitude
 		$latlng = array("latitude"  => $output->results[0]->geometry->location->lat,
