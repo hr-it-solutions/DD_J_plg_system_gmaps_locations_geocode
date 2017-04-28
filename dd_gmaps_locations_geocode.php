@@ -1,7 +1,8 @@
 <?php
 /**
- * @version    1-1-0-0 // Y-m-d 2017-04-14
- * @author     HR IT-Solutions Florian Häusler https://www.hr-it-solutions.com
+ * @package    DD_GMaps_Locations_Geocode
+ *
+ * @author     HR IT-Solutions Florian Häusler <info@hr-it-solutions.com>
  * @copyright  Copyright (C) 2011 - 2017 Didldu e.K. | HR IT-Solutions
  * @license    http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 only
  **/
@@ -51,14 +52,16 @@ class PlgSystemDD_GMaps_Locations_GeoCode extends JPlugin
 			$query = $db->getQuery(true);
 			$query->update($db->qn('#__modules'))
 				->set($db->qn('params') . '=' . $db->q($table->params))
-				->where(array($db->quoteName('id') . '=' . $table->id ));
+				->where(array($db->qn('id') . '=' . $table->id ));
 			$db->setQuery($query);
 			$db->execute();
 
 			return true;
 		}
-
-		return true;
+		else
+		{
+			return true;
+		}
 	}
 
 	/**
@@ -100,14 +103,14 @@ class PlgSystemDD_GMaps_Locations_GeoCode extends JPlugin
 
 			return true;
 		}
-		elseif($output->status == 'ZERO_RESULTS')
+		elseif ($output->status == 'ZERO_RESULTS')
 		{
 			JFactory::getApplication()->enqueueMessage(JText::_('PLG_SYSTEM_DD_GMAPS_LOCATIONS_GEOCODE_API_ALERT_GEOLOCATION_FAILED_ZERO_RESULTS'), 'warning');
 		}
 
 		// Build array latitude and longitude
 		$latlng = array("latitude"  => $output->results[0]->geometry->location->lat,
-		                "longitude" => $output->results[0]->geometry->location->lng);
+						"longitude" => $output->results[0]->geometry->location->lng);
 
 		// Return Array
 		return $latlng;
