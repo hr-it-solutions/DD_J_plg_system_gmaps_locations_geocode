@@ -4,7 +4,7 @@ A Joomla! system plugin for DD Google Maps Locations to GeoCode addresses on Ext
 [![GPL Licence](https://badges.frapsoft.com/os/gpl/gpl.png?v=102)](https://opensource.org/licenses/GPL-2.0/)
 
 ### Dependent Extensions
-- mod_dd_gmaps_module [GMaps Module](https://github.com/hr-it-solutions/DD_J_mod_gmaps_module)
+- mod_dd_gmaps_module [DD GMaps Module](https://github.com/hr-it-solutions/DD_J_mod_gmaps_module)
 
 # DD_ Namespace
 DD_ stands for  **D**idl**d**u e.K. | HR IT-Solutions (Brand recognition)                   <br>
