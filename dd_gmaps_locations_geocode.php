@@ -39,22 +39,26 @@ class PlgSystemDD_GMaps_Locations_GeoCode extends JPlugin
 		{
 			$params = json_decode($table->params);
 
-			// Get latitude and longitude
-			$latlng = $this->Geocode_Location_To_LatLng($params);
+			// If not geohardcode
+			if ($params->geohardcode !== '1')
+			{
+				// Get latitude and longitude
+				$latlng = $this->Geocode_Location_To_LatLng($params);
 
-			$params->latitude  = $latlng['latitude'];
-			$params->longitude = $latlng['longitude'];
+				$params->latitude  = $latlng['latitude'];
+				$params->longitude = $latlng['longitude'];
 
-			$table->params = json_encode($params);
+				$table->params = json_encode($params);
 
-			// Save parameters
-			$db = JFactory::getDbo();
-			$query = $db->getQuery(true);
-			$query->update($db->qn('#__modules'))
-				->set($db->qn('params') . '=' . $db->q($table->params))
-				->where(array($db->qn('id') . '=' . $table->id ));
-			$db->setQuery($query);
-			$db->execute();
+				// Save parameters
+				$db = JFactory::getDbo();
+				$query = $db->getQuery(true);
+				$query->update($db->qn('#__modules'))
+					->set($db->qn('params') . '=' . $db->q($table->params))
+					->where(array($db->qn('id') . '=' . $table->id ));
+				$db->setQuery($query);
+				$db->execute();
+			}
 
 			return true;
 		}
