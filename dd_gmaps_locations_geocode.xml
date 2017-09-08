@@ -7,7 +7,7 @@
     <authorUrl>https://www.hr-it-solutions.com</authorUrl>
     <copyright>Copyright (C) 2011 - 2017 Didldu e.K. | HR IT-Solutions</copyright>
     <license>GNU/GPLv2 only</license>
-    <version>1.1.0.4</version>
+    <version>1.1.0.6</version>
     <description>PLG_SYSTEM_DD_GMAPS_LOCATIONS_GEOCODE_XML_DESCRIPTION</description>
     <files>
         <filename plugin="dd_gmaps_locations_geocode">dd_gmaps_locations_geocode.php</filename>
